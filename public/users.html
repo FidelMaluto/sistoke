@@ -1,0 +1,143 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Corpo do projecto -->
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabeca">
+        <h1><i>SIS<strong style="color: #C5A47E;">TOCK > </strong></i>PRODUTOS</h1>
+        <div style="display: flex; justify-items: center;">
+            <i class="fas fa-user"></i>
+            <h3 style="color: #ddd;">Fidel Malutto</h3>
+        </div>
+    </header>
+    <main>
+        <div class="lateral">
+            <li style="background: #C5A47E;"><a href="index.html" style="color: #1E1E1E;"><strong><i
+                            class="fa fa-home"></i></strong></a></li>
+            <li><a href="produtos.html"><i class="fa fa-plus"></i></a></li>
+            <li><a href=""><i class="fa fa-tags"></i></a></li>
+            <li><a href="users.html"><i class="fa fa-users"></i></a></li>
+            <li><a href=""><i class="fa fa-trash-alt"></i></a></li>
+        </div>
+        <div class="container2">
+            <!-- Principal (main da Dashboard) -->
+            <div class="dashboard">
+                <br>
+            </div>
+            <h1 style="color: #ddd;" id="hProd_d">Adicionar Usuários</h1>
+            <h1 style="display: none; color: #ddd;" id="hProd">Usuários</h1>
+            <div class="elements-views" id="elements-views" style="display: ;">
+
+
+                <form id="formulario">
+                    <input type="text" placeholder="Primeiro nome" name="nome" id="nome">
+                    <input type="text" placeholder="Último nome" name="sobrenome" id="sobrenome">
+                    <input type="number" placeholder="Telemóvel" name="contacto" id="contacto">
+                    <input type="email" placeholder="Seu E-mail" name="email" id="email">
+                    <input type="password" placeholder="Sua plavra-passe" name="senha" id="senha">
+                    <input type="password" placeholder="Confirmar Senha" name="confirmar_senha" id="confirmar_senha">
+                    <button onclick="add()">Adicionar</button><button onclick="verAdd()"
+                        style="margin-inline: 1vh;">Ver</button>
+                </form>
+            </div>
+            <div class="produtos" id="produtos" style="display: none;">
+                <button onclick="voltar()">⬅</button>
+                <div class="users" id="users">
+                    <!-- Os usuários aparecem aqui... -->
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    function add() {
+
+        // Pega os valores corretamente usando trim()
+        const Primeiro_Nome = document.getElementById("nome").value.trim();
+        const Sobrenome = document.getElementById("sobrenome").value.trim();
+        const Contacto = document.getElementById("contacto").value.trim();
+        const Email = document.getElementById("email").value.trim();
+        const Senha = document.getElementById("senha").value.trim();
+        const Confirmar_Senha = document.getElementById("confirmar_senha").value.trim();
+
+        if (!Primeiro_Nome || !Sobrenome || !Contacto || !Email || !Senha || !Confirmar_Senha) {
+            alert("Preencha todos os campos obrigatórios!");
+            return;
+        } else {
+
+        }
+
+        if (Senha != Confirmar_Senha) {
+            alert("As Palavras-passe não conscidem!");
+            return;
+        }
+        // Cria objeto do cadastro
+        const cadastro = { Primeiro_Nome, Sobrenome, Contacto, Email, Senha, Confirmar_Senha };
+
+        // Recupera array existente ou cria novo
+        /*let cadastros = JSON.parse(localStorage.getItem("cadastros")) || [];
+        cadastros.push(cadastro);*/
+
+        // Salva no localStorage
+        /*localStorage.setItem("cadastros", JSON.stringify(cadastros));*/
+
+        alert("Enviado com sucesso!");
+        const div = document.createElement("div");
+        div.id = "dv";
+        div.innerHTML = `<div>${Primeiro_Nome} ${Sobrenome}<br>${Contacto};<br>${Email}<br><br><button onclick="deleteUser()">Eliminar Usuário</button></div>`;
+
+        document.getElementById("users").appendChild(div);
+    };
+</script>
+<!-- _____________________________________________________________________________________________ -->
+<script>
+    document.getElementById("formulario").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+        const data = {
+            Primeiro_Nome: formData.get('nome'),
+            Sobrenome: formData.get('sobrenome'),
+            Contacto: formData.get('contacto'),
+            Email: formData.get('email'),
+            Senha: formData.get('senha'),
+            Confirmar_Senha: formData.get('confirmar_senha'),
+        }
+
+        const resposta = await fetch("/enviar", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+        });
+        const resultado = await resposta.text();
+        alert(resultado);
+    });
+</script>
+
+<script>
+    function verAdd() {
+        document.getElementById("produtos").style.display = "block";
+        document.getElementById("elements-views").style.display = "none";
+        document.getElementById("hProd").style.display = "block";
+        document.getElementById("hProd_d").style.display = "none";
+    }
+
+    function voltar() {
+        document.getElementById("produtos").style.display = "none";
+        document.getElementById("elements-views").style.display = "flex";
+        document.getElementById("hProd").style.display = "none";
+        document.getElementById("hProd_d").style.display = "block";
+    }
+</script>
+
+</html>
