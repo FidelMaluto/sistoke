@@ -1,46 +1,11 @@
+const token = localStorage.getItem("token");
+
+if (!token) {
+    window.location.href = "login.html";
+}
+
 const datas = document.getElementById('datas');
 const addItem = document.getElementById('addItem');
-
-// PRIMEIRA EDIÇÃO
-// addItem.addEventListener('click', (e) => {
-//     e.preventDefault();
-
-//     const nome = document.getElementById('nome').value;
-//     const quantidade = document.getElementById('quantidade').value;
-//     const categoria = document.getElementById('categoria').value;
-//     const preco_unitario = document.getElementById('preco_unitario').value;
-//     const marca_produto = document.getElementById('marca_produto').value;
-//     const data_cadastro = document.getElementById('data_cadastro').value;
-//     const data_entrada = document.getElementById('data_entrada').value;
-
-// // Cadastrando item
-//     fetch('http://localhost:3000/produto', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             nome,
-//             quantidade,
-//             categoria,
-//             preco_unitario,
-//             marca_produto,
-//             data_cadastro,
-//             data_entrada
-//         })
-//     })
-//     .then(response => response.json())
-//     .then(data => {
-//         alert('Dados enviados com sucesso.');
-//         // datas.innerHTML = `Dados envidos com sucesso. ${data}`
-//     })
-//     .catch(err =>{
-//         datas.innerHTML = `Erro ao cadastrar item, ${err}`;
-//     });
-
-//     document.getElementById('formulario').reset();
-//     mostrarDados();
-// })
 
 //Listando itens
 async function listarAuto() {
@@ -49,12 +14,13 @@ async function listarAuto() {
     mostrarDados(dados);
     console.log(dados)
 }
+
 window.onload = listarAuto;
 
 // Fução mostrarDados
 function mostrarDados(lista) {
     const tabela = document.getElementById('datas');
-    tabela.innerHTML = '';
+    tabela.innerHTML = ``;
 
     lista.forEach(itens => {
         tabela.innerHTML += `
@@ -68,8 +34,8 @@ function mostrarDados(lista) {
         <td>${itens.data_cadastro}</td>
         <td>${itens.data_entrada}</td>
         <td>
-            <button onclick='editar(${JSON.stringify(itens)})'>Editar</button>
-            <button onclick='excluir(${itens.id})'>Excluir</button>
+            <button onclick='editar(${JSON.stringify(itens)})' class='editar'>Editar</button>
+            <button onclick='excluir(${itens.id})' class='excluir'>Excluir</button>
         </td>
         </tr>
         `;
@@ -143,6 +109,10 @@ document.getElementById('formulario').addEventListener('submit', async (e) => {
 
 // Excluir item
 async function excluir(id) {
+    const confirmar = confirm('Pretendes eliminar esse item?');
+
+    if (!confirmar) return;
+
     await fetch(`http://localhost:3000/produto/${id}`, {
         method: 'DELETE'
     })
@@ -151,4 +121,10 @@ async function excluir(id) {
         }).catch(err => {
             console.log('Erro ao deletar!', err);
         });
+}
+
+// Sair do sistema
+function logout() {
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
 }

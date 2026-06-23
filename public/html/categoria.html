@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cetegorias</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <script src="../assets/js/index1.js" defer></script>
+</head>
+<!-- Corpo do projecto -->
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabeca">
+        <h1><i>SIS<strong style="color: #C5A47E;">TOCK > </strong></i>CATEGORIAS</h1>
+        <div style="display: flex; justify-items: center;">
+            <i class="fas fa-user"></i>
+            <h3 id="user" style="color: #ddd;">Fidel Malutto</h3>
+            <button onclick="logout()"><i class="fa-solid fa-bolt"></i> sair</button>
+        </div>
+    </header>
+    <main>
+
+        <div class="lateral">
+            <li><a href="index.html"><strong><i class="fa fa-home"></i></strong></a></li>
+            <li><a href="produtos.html"><i class="fa fa-plus"></i></a></li>
+            <li style="background: #C5A47E;"><a href="categoria.html" style="color: #1E1E1E;"><i
+                        class="fa fa-tags"></i></a></li>
+            <li><a href="users.html"><i class="fa fa-users"></i></a></li>
+            <li><a href="lixo.html"><i class="fa fa-trash-alt"></i></a></li>
+        </div>
+
+        <div id="elements-views2">
+            <!-- <div class="elements2"> -->
+            <div class="elements2" id="elements2" style="width: 100%; height: 91vh;">
+                <div class="card2" id="computadores" onclick="mostrarComputadores()">
+                    <h1>Computadores <button onclick="voltar()">X</button></h1>
+                    <table id="categoria1">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </thead>
+                        <!-- Os produtos aparecem aqui... -->
+                        <tbody id="datasPC"></tbody>
+                    </table>
+                </div>
+
+
+                <!-- Card 2: Produtos em Stock -->
+                <div class="card2" id="telemoveis" onclick="mostrarTelemoveis()">
+                    <h1>Telemóveis <button onclick="voltar()">X</button></h1>
+                    <table id="categoria2">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </thead>
+                        <!-- Os produtos aparecem aqui... -->
+                        <tbody id="datasTel"></tbody>
+                    </table>
+                </div>
+
+
+                <!-- Card 3: Stock Baixo -->
+                <div class="card2" id="cabos" onclick="mostrarCabos()">
+                    <h1>Cabos <button onclick="voltar()">X</button></h1>
+                    <table id="categoria3">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </thead>
+                        <!-- Os produtos aparecem aqui... -->
+                        <tbody id="datasCab"></tbody>
+                    </table>
+                </div>
+
+
+                <div class="card2" id="carregadores" onclick="mostrarCarregadores()">
+                    <h1>Carregadores <button onclick="voltar()">X</button></h1>
+                    <table id="categoria4">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </thead>
+                        <!-- Os produtos aparecem aqui... -->
+                        <tbody id="datasCar"></tbody>
+                    </table>
+                </div>
+
+
+                <div class="card2" id="televisoes" onclick="mostrarTelevisoes()">
+                    <h1>Televisões <button onclick="voltar()">X</button></h1>
+                    <table id="categoria5">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </thead>
+                        <!-- Os produtos aparecem aqui... -->
+                        <tbody id="datasTelev"></tbody>
+                    </table>
+                </div>
+
+
+                <div class="card2" id="som" onclick="mostrarSons()">
+                    <h1>Aparelhos de som <button onclick="voltar()">X</button></h1>
+                    <table id="categoria6">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </thead>
+                        <!-- Os produtos aparecem aqui... -->
+                        <tbody id="datasApa"></tbody>
+                    </table>
+                </div>
+
+
+                <div class="card2" id="redes" onclick="mostrarRedes()">
+                    <h1>Rede <button onclick="voltar()">X</button></h1>
+                    <table id="categoria7">
+                        <thead>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </thead>
+                        <!-- Os produtos aparecem aqui... -->
+                        <tbody id="datasRed"></tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- </div> -->
+
+        </div>
+
+    </main>
+
+
+</body>
+
+</html>

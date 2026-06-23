@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISTOCK - Dashboard</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <script src="../assets/js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="cabeca">
+        <h1>
+            <i>SIS<strong style="color:#C5A47E;">TOCK > </strong></i>DASHBOARD
+        </h1>
+
+        <div style="display:flex; align-items:center; gap:10px;">
+            <i class="fa-solid fa-user"></i>
+            <h3 id="user" style="color:#ddd;">Fidel Malutto</h3>
+            <button onclick="logout()"><i class="fa-solid fa-bolt"></i> sair</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- SIDEBAR (igual sistema todo) -->
+        <ul class="lateral">
+            <li style="background:#C5A47E;">
+                <a href="index.html"><i class="fa-solid fa-house" style="color:#1E1E1E;"></i>a</a>
+            </li>
+            <li><a href="produtos.html"><i class="fa-solid fa-box"></i>b</a></li>
+            <li><a href="categoria.html"><i class="fa-solid fa-layer-group"></i>c</a></li>
+            <li> <a href="users.html"><i class="fa-solid fa-user-group"></i>d</a></li>
+            <li><a href="lixo.html"><i class="fa-solid fa-trash"></i>e</a></li>
+        </ul>
+
+        <!-- CONTEÚDO -->
+        <div class="container2">
+
+            <!-- CARDS -->
+            <div class="dashboard">
+
+                <div class="cards">
+
+                    <!-- CARD 1 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa-solid fa-coins"></i>
+                            <span>Valor total em Stock</span>
+                        </div>
+
+                        <h2 class="card-value">0 Kz</h2>
+                    </div>
+
+                    <!-- CARD 2 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa-solid fa-boxes-stacked"></i>
+                            <span>Total de Produtos</span>
+                        </div>
+
+                        <h2 class="card-value">0</h2>
+                    </div>
+
+                    <!-- CARD 3 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <span>Stock Baixo</span>
+                        </div>
+
+                        <h2 class="card-value">0</h2>
+                    </div>
+
+                    <!-- CARD 4 -->
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>Itens Recentes</span>
+                        </div>
+
+                        <h2 class="card-value">--</h2>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- GRÁFICO -->
+            <div class="elements-views">
+
+                <div class="ele">
+                    <h1 style="color:#ddd;">Análise de Stock</h1>
+
+                    <canvas id="graficoStock"></canvas>
+                </div>
+
+            </div>
+
+            <!-- INVENTÁRIO -->
+            <div class="elements-views">
+
+                <div class="ele">
+
+                    <h1 style="color:#ddd;">Inventário corrente</h1>
+
+                    <div class="cabecalho">
+
+                        <div class="search-box">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Pesquisar...">
+                        </div>
+
+                        <div>
+                            <button><a href="produtos.html"><i class="fa-solid fa-plus"></i>Adicionar</a></button>
+                            <button><a href="users.html"><i class="fa-solid fa-bolt"></i>Stock rápido</a></button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

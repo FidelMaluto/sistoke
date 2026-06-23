@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuários</title> 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <script src="../assets/js/scriptU.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabeca">
+        <h1>
+            <i>SIS<strong style="color: #C5A47E;">TOCK > </strong></i>USUÁRIOS
+        </h1>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fa-solid fa-user"></i>
+            <h3 id="user style="color: #ddd;">Fidel Malutto</h3>
+            <button onclick="logout()"><i class="fa-solid fa-bolt"></i> sair</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Sidebar -->
+        <ul class="lateral">
+            <li><a href="index.html"><i class="fa-solid fa-house"></i>a</a></li>
+            <li><a href="produtos.html"><i class="fa-solid fa-circle-plus"></i>b</a></li>
+            <li><a href="categoria.html"><i class="fa-solid fa-layer-group"></i>c</a></li>
+            <li style="background: #C5A47E;">
+                <a href="users.html" style="color: #1E1E1E;"><i class="fa-solid fa-user-group"></i>d</a>
+            </li>
+            <li><a href="lixo.html"><i class="fa-solid fa-trash"></i>e</a></li>
+        </ul>
+
+        <!-- Conteúdo -->
+        <div class="container2">
+
+            <div class="dashboard"></div>
+
+            <!-- Títulos -->
+            <h1 style="color: #ddd;" id="hProd_d">Adicionar Usuários</h1>
+            <h1 style="display: none; color: #ddd;" id="hProd">Usuários</h1>
+
+            <!-- Formulário -->
+            <div class="elements-views" id="elements-views">
+
+                <form id="formularioU">
+
+                    <input type="hidden" id="id" name="id">
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="nome" name="nome" class="validar" placeholder="Primeiro nome">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-user-tag"></i>
+                        <input type="text" id="sobrenome" name="sobrenome" class="validar" placeholder="Último nome">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-phone"></i>
+                        <input type="number" id="contatos" name="contatos" class="validar" placeholder="Telemóvel">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="email" name="email" class="validar" placeholder="Seu E-mail">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="senha" name="senha" class="validar" placeholder="Sua palavra-passe">
+                    </div>
+
+                    <div class="input-group">
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirmar_senha" class="validar" name="confirmar_senha" placeholder="Confirmar Senha">
+                    </div>
+
+                    <button type="submit">
+                        <i class="fa-solid fa-user-plus"></i> Adicionar
+                    </button>
+
+                    <button type="button" onclick="verAdd()">
+                        <i class="fa-solid fa-eye"></i> Ver
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- Lista de usuários -->
+            <div class="produtos" id="produtos" style="display: block;">
+
+                <button onclick="voltar()">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+
+                <div class="users" id="users">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Primeiro Nome</th>
+                                <th>Último Nome</th>
+                                <th>Contacto</th>
+                                <th>E-mail</th>
+                                <th>Opções</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersData"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        function verAdd() {
+            document.getElementById("produtos").style.display = "block";
+            document.getElementById("elements-views").style.display = "none";
+            document.getElementById("hProd").style.display = "block";
+            document.getElementById("hProd_d").style.display = "none";
+        }
+
+        function voltar() {
+            document.getElementById("produtos").style.display = "none";
+            document.getElementById("elements-views").style.display = "flex";
+            document.getElementById("hProd").style.display = "none";
+            document.getElementById("hProd_d").style.display = "block";
+        }
+    </script>
+
+    <!-- <script>
+        class ValidarFormulario {
+            constructor() {
+                this.formulario = document.querySelector('.formularioU');
+                this.eventos();
+            }
+
+            eventos() {
+                this.formulario.addEventListener('submit', e => {
+                    this.handleSubmit(e);
+                })
+            }
+
+            handleSubmit(e) {
+                e.preventDefault();
+
+                const inforSValido = this.camposValidos();
+                const senhaSValida = this.senhasValidos();
+
+                if(inforSValido && senhaSValida) {
+                    alert('Usuário cadastrado com sucesso!');
+                    this.formulario.submit();
+                }
+            }
+
+            senhasValidos() {
+                let valida = true;
+
+                const senha = this.formulario.querySelector('.senha');
+                const confirmar_senha = this.formulario.querySelector('.confirmar_senha');
+
+                if(senha.value !== confirmar_senha.value) {
+                    this.showErro(senha, 'Senha e Confirmar senha têm que ser iguais!');
+                    this.showErro(confirmar_senha, 'Senha e Confirmar senha têm que ser iguais!');
+                }
+
+                if(senha.value.length < 6 || senha.value.length > 12) {
+                    valida = false;
+
+                    this.showErro(senha, 'Senha precisa conter entre 6 e 12 caracteres.')
+                }
+
+                return valida;
+            }
+
+            camposValidos() {
+                let valida = true;
+
+                for(let erroTexto of this.formulario.querySelectorAll('.erro-texto')) {
+                    erroTexto.remove();
+                }
+
+                for(let campo of this.formulario.querySelectorAll('.validar')) {
+                    const label = campo.previousElementSibling.innerText;
+
+                    if(!campo.value) {
+                        this.showErro(campo, `Campo '${label}' não pode estar vazio!`);
+                        valida = false;
+                    }
+
+                    if(campo.classList.contains('usuario')) {
+                        if(!this.validarUsuario(campo)) valida = false;
+                    }
+                }
+
+                return valida;
+            }
+
+            validarUsuario(campo) {
+                const usuario = campo.value;
+                let valida = true;
+
+                if(usuario.length < 3 || usuario.length > 12) {
+                    this.showErro(campo, 'Nome do usuário deve conter 3 à 12 caracteres.')
+                    valida = false;
+                }
+
+                if(!usuario.match(/^[a-zA-Z]+$/g)) {
+                    this.showErro(usuario, 'Nome do usuário deve conter apenas letras.');
+                }
+
+                return valida;
+            }
+
+            showErro(campo, msg) {
+                const div = document.createElement('div');
+                div.innerHTML = msg;
+                div.classList.add('erro-texto');
+                campo.insertAdjacentElement('afterend', div);
+            }
+            
+        }
+
+        const validar = new ValidarFormulario()
+        
+    </script> -->
+
+</body>
+
+</html>

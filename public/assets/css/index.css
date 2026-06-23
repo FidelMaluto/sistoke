@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* BODY */
+body {
+    background: #121212;
+    color: #ddd;
+}
+
+/* CABEÇALHO */
+.cabeca {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #1E1E1E;
+    border-bottom: 1px solid #2c2c2c;
+}
+
+.cabeca h1 {
+    font-size: 20px;
+}
+
+.cabeca i {
+    color: #C5A47E;
+}
+
+/* LAYOUT */
+main {
+    display: flex;
+}
+
+/* CARDS DASHBOARD */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #C5A47E;
+    margin-bottom: 10px;
+}
+
+.card-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* SEARCH BOX */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: #2A2A2A;
+    padding: 10px;
+    border-radius: 8px;
+    gap: 8px;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #fff;
+}
+
+/* CABEÇALHO INVENTÁRIO */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* GRÁFICO */
+canvas#graficoStock {
+    background: #1E1E1E;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* SIDEBAR */
+.lateral {
+    width: 70px;
+    height: 100vh;
+    background: #1A1A1A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    gap: 20px;
+    list-style: none;
+}
+
+.lateral li {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.lateral li:hover {
+    background: #C5A47E;
+}
+
+.lateral a {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.lateral i {
+    transition: 0.3s;
+}
+
+.lateral li:hover i {
+    transform: scale(1.2);
+    color: #1E1E1E;
+}
+
+/* CONTEÚDO */
+.container2 {
+    flex: 1;
+    padding: 30px;
+}
+
+/* TÍTULOS */
+#hProd_d,
+#hProd {
+    margin-bottom: 20px;
+}
+
+/* FORMULÁRIOS */
+#formulario,
+#formularioU {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    background: #1E1E1E;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+/* INPUT GROUP (COM ÍCONES) */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #2A2A2A;
+    border-radius: 8px;
+    padding: 0 10px;
+}
+
+.input-group i {
+    color: #C5A47E;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 12px;
+    color: #fff;
+    width: 100%;
+}
+
+/* INPUTS NORMAIS (produtos) */
+#formulario input,
+#formulario select {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #2A2A2A;
+    color: #fff;
+    outline: none;
+}
+
+#formulario input:focus,
+#formulario select:focus,
+.input-group input:focus {
+    border: 1px solid #C5A47E;
+}
+
+/* BOTÕES */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #C5A47E;
+    color: #1E1E1E;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button i {
+    margin-right: 5px;
+}
+
+button:hover {
+    background: #a88d6b;
+}
+
+/* BOTÃO VOLTAR */
+.produtos button {
+    margin-bottom: 10px;
+}
+
+/* TABELA */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1E1E1E;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* CABEÇALHO TABELA */
+thead {
+    background: #2A2A2A;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* LINHAS */
+tbody td {
+    padding: 12px;
+    border-top: 1px solid #2c2c2c;
+}
+
+/* HOVER */
+tbody tr:hover {
+    background: #2a2a2a;
+}
+
+/* BOTÕES NA TABELA */
+td button {
+    padding: 6px 10px;
+    font-size: 12px;
+    margin-right: 5px;
+}
+
+/* CONTAINERS */
+.elements-views {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* SCROLL BONITO */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C5A47E;
+    border-radius: 10px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .lateral {
+        display: none;
+    }
+
+    .container2 {
+        padding: 15px;
+    }
+
+    #formulario,
+    #formularioU {
+        grid-template-columns: 1fr;
+    }
+}

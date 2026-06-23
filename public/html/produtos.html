@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <script src="../assets/js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabeca">
+        <h1>
+            <i>SIS<strong style="color: #C5A47E;">TOCK > </strong></i>PRODUTOS
+        </h1>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-user"></i>
+            <h3 id="user" style="color: #ddd;">Fidel Malutto</h3>
+            <button onclick="logout()"><i class="fa-solid fa-bolt"></i> sair</button>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Menu lateral -->
+        <ul class="lateral">
+            <li style="background: #C5A47E;">
+                <a href="index.html" style="color: #1E1E1E;">
+                    <strong><i class="fa fa-home"></i></strong>a
+                </a>
+            </li>
+            <li><a href="produtos.html"><i class="fa fa-plus"></i>b</a></li>
+            <li><a href="categoria.html"><i class="fa fa-tags"></i>c</a></li>
+            <li><a href="users.html"><i class="fa fa-users"></i>d</a></li>
+            <li><a href="lixo.html"><i class="fa fa-trash-alt"></i>e</a></li>
+        </ul>
+
+        <div class="container2">
+
+            <!-- Dashboard -->
+            <div class="dashboard"></div>
+
+            <!-- Títulos -->
+            <h1 style="color: #ddd;" id="hProd_d">Adicionar Produtos</h1>
+            <h1 style="display: none; color: #ddd;" id="hProd">Produtos Adicionados</h1>
+
+            <!-- Formulário -->
+            <div class="elements-views" id="elements-views">
+
+                <form id="formulario">
+                    <input type="hidden" id="id">
+
+                    <input type="text" id="nome" name="nome" placeholder="Nome do Produto">
+                    <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
+
+                    <select id="categoria">
+                        <option value="Computador">Computador</option>
+                        <option value="Telemóvel">Telemóvel</option>
+                        <option value="Cabo">Cabo</option>
+                        <option value="Carregador">Carregador</option>
+                        <option value="Televisores">Televisores</option>
+                        <option value="Colunas Bluetooth">Colunas Bluetooth</option>
+                    </select>
+
+                    <input type="number" id="preco_unitario" name="preco_unitario" placeholder="Preço do Produto">
+                    <input type="text" id="marca_produto" name="marca_produto" placeholder="Marca">
+
+                    <input type="date" id="data_cadastro" name="data_cadastro">
+                    <input type="date" id="data_entrada" name="data_entrada">
+
+                    <button type="submit">Adicionar</button>
+                    <button onclick="verAdd()" style="margin-inline: 1vh;">Ver</button>
+                </form>
+
+            </div>
+
+            <!-- Tabela de produtos -->
+            <div class="produtos" id="produtos" style="display: block;">
+
+                <button onclick="voltar()">⬅</button>
+
+                <table id="adicionados">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Quantidade</th>
+                            <th>Categoria</th>
+                            <th>Preço Unitário</th>
+                            <th>Marca/Modelo</th>
+                            <th>Data de Cadastro</th>
+                            <th>Data de Entrada</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="datas"></tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script>
+        function verAdd() {
+            document.getElementById("produtos").style.display = "block";
+            document.getElementById("elements-views").style.display = "none";
+            document.getElementById("hProd").style.display = "block";
+            document.getElementById("hProd_d").style.display = "none";
+        }
+
+        function voltar() {
+            document.getElementById("produtos").style.display = "none";
+            document.getElementById("elements-views").style.display = "flex";
+            document.getElementById("hProd").style.display = "none";
+            document.getElementById("hProd_d").style.display = "block";
+        }
+    </script>
+
+</body>
+
+</html>

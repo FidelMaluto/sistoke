@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lixeira</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <script src="../assets/js/index1.js" defer></script>
+</head>
+<!-- Corpo do projecto -->
+
+<body>
+    <!-- Cabeçalho -->
+    <header class="cabeca">
+        <h1><i>SIS<strong style="color: #C5A47E;">TOCK > </strong></i>LIXEIRA</h1>
+        <div style="display: flex; justify-items: center;">
+            <i class="fas fa-user"></i>
+            <h3 id="user" style="color: #ddd;">Fidel Malutto</h3>
+            <button onclick="logout()"><i class="fa-solid fa-bolt"></i> sair</button>
+        </div>
+    </header>
+    <main>
+
+        <div class="lateral">
+            <li><a href="index.html"><strong><i class="fa fa-home"></i></strong></a></li>
+            <li><a href="produtos.html"><i class="fa fa-plus"></i></a></li>
+            <li><a href="categoria.html"><i class="fa fa-tags"></i></a></li>
+            <li><a href="users.html"><i class="fa fa-users"></i></a></li>
+            <li style="background: #C5A47E;"><a href="lixo.html" style="color: #1E1E1E;"><i
+                        class="fa fa-trash-alt"></i></a></li>
+        </div>
+
+        <div id="elements-views2">
+            <div class="produtos" id="produtos" style="width: 100%; height: 91vh;">
+                <button onclick="voltar()">⬅</button>
+                <table id="adicionados">
+                    <thead>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Quantidade</th>
+                        <th>Categoria</th>
+                        <th>Preço Unitário</th>
+                        <th>Marca/Modelo</th>
+                        <th>Data de Cadastro</th>
+                        <th>Data de Entrada</th>
+                        <th>Ações</th>
+                    </thead>
+
+                    <tbody id="datas"><!-- Os Itens eliminados irão aparecer aqui! --></tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+</body>
+
+</html>
