@@ -1,15 +1,22 @@
-import express from 'express';
-import cors from 'cors';
-import usuarioRoute from './routes/usuarios.js';
-import produtoRoute from './routes/produtos.js';
-import dashboardRoute from './routes/dashboard.js';
+import express from "express";
+import cors from "cors";
+import usuarioRoute from "./routes/usuarios.js";
+import produtoRoute from "./routes/produtos.js";
+import dashboardRoute from "./routes/dashboard.js";
+import path from "path";
 
 const app = express();
 
+app.use(express.static("../public/html"));
+
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "../public/html/login.html");
+});
+
 app.use(cors());
 app.use(express.json());
-app.use('/', usuarioRoute);
-app.use('/', produtoRoute);
-app.use('/', dashboardRoute);
+app.use("/", usuarioRoute);
+app.use("/", produtoRoute);
+app.use("/", dashboardRoute);
 
 export default app;
