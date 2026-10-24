@@ -2,6 +2,8 @@
   "name": "api",
   "version": "1.0.0",
   "main": "app.js",
+  "start": "node server.js",
+  "dev": "node --watch server.js",
   "dependencies": {
     "accepts": "^2.0.0",
     "aws-ssl-profiles": "^1.1.2",

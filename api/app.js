@@ -3,7 +3,6 @@ import cors from "cors";
 import usuarioRoute from "./routes/usuarios.js";
 import produtoRoute from "./routes/produtos.js";
 import dashboardRoute from "./routes/dashboard.js";
-import path from "path";
 
 const app = express();
 
